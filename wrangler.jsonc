@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers con Static Assets: sirve la carpeta ./public sin build.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "carta-meson-darling",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    // URLs limpias (/privacidad en vez de /privacidad.html) y sin barra final.
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,23 @@
+# Dependencias y caché
+node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+*.psd
+*.ai
+# Originales pesados de fotos (guardar fuera del repo)
+_originales/
+
+# Configuracion local de impeccable
+.impeccable/
+
+# Archivos de trabajo de hallmark
+.hallmark/

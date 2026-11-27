@@ -1,0 +1,8 @@
+# Redirecciones 301 (Cloudflare Workers Static Assets). Formato: origen destino código
+# Checklist 06: una línea por cada URL antigua que deba apuntar a una nueva.
+/index.html / 301
+/aviso-legal.html /aviso-legal 301
+/privacidad.html /privacidad 301
+# Si el cliente tenía otra web, añade aquí sus URLs antiguas, por ejemplo:
+# /carta.php /carta 301
+# La redirección www ↔ dominio sin www NO va aquí: se hace en Cloudflare (Rules → Redirect Rules) (checklist 07).

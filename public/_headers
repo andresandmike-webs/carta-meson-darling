@@ -1,0 +1,26 @@
+# Cabeceras de seguridad (Cloudflare Workers Static Assets las aplica desde este archivo).
+# Si cambias el script en línea del <head> de index.html, recalcula su hash:
+#   node C:\Webs\_herramientas\verificar.mjs clientes\<id>   (te dice el hash correcto)
+# Este cliente no tiene formulario: Web3Forms ya está quitado de connect-src y form-action.
+# Con ANALÍTICA, mapas incrustados o vídeos de terceros esto debe ampliarse Y hace falta banner de cookies: consúltalo antes.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-XdA4mAZ4tTwIkOPQzP1Oh9+5wurxjVpdpL4DdrpNK+s='; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), serial=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=2592000
+
+# CSS y JS: 1 día (no llevan huella en el nombre). Si cambias uno y es urgente, añade ?v=N al enlace (checklist 13).
+/css/*
+  Cache-Control: public, max-age=86400
+
+/js/*
+  Cache-Control: public, max-age=86400
