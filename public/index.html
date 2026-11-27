@@ -7,6 +7,9 @@
 <meta name="description" content="La carta del Mesón Darling en Cuenca: morteruelo, zarajos, cordero asado, postres de la tierra, menú del día y de fin de semana, con precios e IVA incluido.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://mesondarling.misioncumplida.app/">
+<link rel="alternate" hreflang="es" href="https://mesondarling.misioncumplida.app/">
+<link rel="alternate" hreflang="en" href="https://mesondarling.misioncumplida.app/en">
+<link rel="alternate" hreflang="x-default" href="https://mesondarling.misioncumplida.app/">
 <meta name="theme-color" content="#1f1314">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
@@ -25,7 +28,7 @@
 <script>(function(){var d=document.documentElement;d.className+=' js';try{var q=new URLSearchParams(location.search).get('movimiento'),g=localStorage;if(q==='1')g.setItem('mov','si');if(q==='0')g.setItem('mov','no');var m=g.getItem('mov');if(m==='si')d.className+=' mov';if(m==='no')d.className+=' sin-mov';}catch(e){}})();</script>
 <link rel="preload" href="fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/estilos.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -246,6 +249,12 @@
 <a class="saltar" href="#carta">Saltar a la carta</a>
 
 <header class="cabeza contenedor">
+  <nav class="idioma" aria-label="Idioma">
+    <ul>
+      <li><a href="/" aria-current="page" lang="es">Español</a></li>
+      <li><a href="/en" hreflang="en" lang="en">English</a></li>
+    </ul>
+  </nav>
   <div class="emblema">
     <canvas class="vapor" data-firma="vapor" aria-hidden="true"></canvas>
     <svg viewBox="60 170 540 300" aria-hidden="true" focusable="false">
@@ -375,6 +384,6 @@
   <a href="https://wa.me/34969222718?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20la%20carta.">WhatsApp</a>
 </div>
 
-<script src="js/main.js" defer></script>
+<script src="js/main.js?v=2" defer></script>
 </body>
 </html>

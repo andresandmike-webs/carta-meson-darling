@@ -135,22 +135,36 @@
 
   // ---- Qué menú hay hoy (hora de Madrid). Mantener igual que cliente.md.
   // Día: 0 = domingo … 6 = sábado. Lunes y miércoles cerrado.
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  // Textos en el idioma de la página (<html lang="es"> en / y lang="en" en /en)
+  var EN = (document.documentElement.lang || '').slice(0, 2) === 'en';
+  var T = EN ? {
+    dias: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    cerrado: function (d) { return 'Today, ' + d + ', we are closed. We hope to see you another day.'; },
+    finde: function (d) { return 'Today, ' + d + ', there is a <strong>weekend set menu at 24,50 €</strong>.'; },
+    diario: function (d) { return 'Today, ' + d + ', there is a <strong>set menu of the day at 14,90 €</strong>.'; },
+    marca: 'today', anim: 'Animations: ', si: 'on', no: 'off'
+  } : {
+    dias: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+    cerrado: function (d) { return 'Hoy, ' + d + ', el mesón cierra. Te esperamos otro día.'; },
+    finde: function (d) { return 'Hoy, ' + d + ', hay <strong>menú de fin de semana a 24,50 €</strong>.'; },
+    diario: function (d) { return 'Hoy, ' + d + ', hay <strong>menú del día a 14,90 €</strong>.'; },
+    marca: 'hoy', anim: 'Animaciones: ', si: 'activadas', no: 'desactivadas'
+  };
   var CLAVES = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
   try {
     var p = {};
     new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', weekday: 'short' }).formatToParts(new Date())
       .forEach(function (x) { p[x.type] = x.value; });
-    var hoy = CLAVES[p.weekday], texto;
-    if (hoy === 1 || hoy === 3) texto = 'Hoy, ' + DIAS[hoy] + ', el mesón cierra. Te esperamos otro día.';
-    else if (hoy === 6 || hoy === 0) texto = 'Hoy, ' + DIAS[hoy] + ', hay <strong>menú de fin de semana a 24,50 €</strong>.';
-    else texto = 'Hoy, ' + DIAS[hoy] + ', hay <strong>menú del día a 14,90 €</strong>.';
+    var hoy = CLAVES[p.weekday], texto, d = T.dias[hoy];
+    if (hoy === 1 || hoy === 3) texto = T.cerrado(d);
+    else if (hoy === 6 || hoy === 0) texto = T.finde(d);
+    else texto = T.diario(d);
     var aviso = document.getElementById('hoy');
     if (aviso) aviso.innerHTML = texto;
     document.querySelectorAll('.menu-tarjeta[data-dias]').forEach(function (t) {
       if (t.getAttribute('data-dias').split(',').indexOf(String(hoy)) > -1) {
         t.classList.add('hoy-toca');
-        var m = document.createElement('span'); m.className = 'hoy-marca'; m.textContent = 'hoy';
+        var m = document.createElement('span'); m.className = 'hoy-marca'; m.textContent = T.marca;
         t.appendChild(m);
       }
     });
@@ -160,7 +174,7 @@
   var bm = document.querySelector('.mov-boton');
   if (bm) {
     bm.setAttribute('aria-pressed', String(!reducir));
-    bm.textContent = 'Animaciones: ' + (reducir ? 'desactivadas' : 'activadas');
+    bm.textContent = T.anim + (reducir ? T.no : T.si);
     bm.addEventListener('click', function () {
       try { localStorage.setItem('mov', reducir ? 'si' : 'no'); } catch (e) {}
       location.reload();

@@ -7,7 +7,7 @@
 ## Datos del proyecto
 - **Repositorio:** https://github.com/andresandmike-webs/carta-meson-darling (privado)
 - **Hosting:** Cloudflare Workers (Static Assets), despliegue automático desde `main`
-- **URL de Cloudflare:** (pendiente tras el primer despliegue)
+- **URL de Cloudflare:** https://carta-meson-darling.palomobernardoandres.workers.dev (desplegada y comprobada el 2026-11-27)
 - **Dominio:** https://mesondarling.misioncumplida.app
 - **Registrador:** dominio `misioncumplida.app` del usuario, ya gestionado en Cloudflare (nameservers alfred/keyla.ns.cloudflare.com, comprobado el 2026-11-27). Subdominio provisional hasta comprar un dominio propio para las cartas.
 - **Formulario:** no
@@ -39,7 +39,8 @@
 
 ## Pendientes
 - [ ] Pedir al restaurante los alérgenos de cada plato (no inventarlos)
-- [ ] Decidir si la carta va también en inglés
+- [ ] Revisar las traducciones al inglés con alguien con buen inglés
+- [ ] Al cambiar un precio o plato, cambiarlo en `index.html` **y** en `en.html`; si cambia CSS/JS, subir el `?v=N` de sus enlaces
 - [ ] Al pasar a datos reales: quitar `noindex` (index, legales) y los datos de prueba
 - [ ] Mover a un dominio propio para las cartas cuando se compre
 - [ ] Revisar legales y retirar el bloque «REVISAR ANTES DE PUBLICAR»
@@ -51,3 +52,4 @@
 |---|---|---|
 | 2026-11-27 | Alta de la web (primera versión) | todos |
 | 2026-11-27 | Alta de la carta digital de prueba (diseño con Hallmark: emblema de la cazuela con vapor, barra de secciones fija, menú de hoy marcado) | todos |
+| 2026-11-27 | Añade la carta en inglés (/en) con selector de idioma, hreflang y textos del JS por idioma; fuerza versión nueva de CSS/JS (?v=2) | public/index.html, public/en.html, public/css/estilos.css, public/js/main.js, public/sitemap.xml, public/_redirects, legales y 404 |

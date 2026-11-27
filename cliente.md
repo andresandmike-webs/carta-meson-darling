@@ -63,6 +63,6 @@ Horarios especiales: sin datos. El cierre semanal es lunes y miércoles (el mié
 
 ## Notas
 - Alérgenos: la ficha no trae los alérgenos de cada plato; la carta remite al equipo. **No inventarlos**: pedirlos al restaurante antes de cualquier uso real.
-- Idiomas: solo español en la prueba (inglés pendiente de decidir).
+- Idiomas: español (`/`) e inglés (`/en`), pedido por el usuario el 2026-11-27. Los nombres de los platos se mantienen en español con la descripción traducida. Los textos legales solo en español (enlazados como «in Spanish»). Traducciones hechas por Claude: que las revise alguien con buen inglés antes de un uso real.
 - Los textos de «Lo que nos define» y «Grupos y celebraciones» son inventados.
 - Reseñas reales de Google no citadas (falta permiso). Solo se menciona la valoración global.
